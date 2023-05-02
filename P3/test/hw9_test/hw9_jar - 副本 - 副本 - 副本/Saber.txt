@@ -1,0 +1,1000 @@
+Ok
+Ok
+pinf-1, 97624202-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-1, 97624202-1
+Ok
+Ok
+Ok
+pinf-2, 57319076-1
+Ok
+epi-2, 99681029-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-3, 26813638-1
+pinf-3, 14183115-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-4, 13396614-1
+epi-5, 24488278-1
+epi-6, 99033855-1
+epi-7, 53909513-1
+pinf-4, 92998034-1
+Ok
+epi-8, 1239157-1
+Ok
+Ok
+Ok
+pinf-5, 14183115-2
+Ok
+Ok
+Ok
+pinf-6, 17256565-1
+Ok
+epi-9, 63587676-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-7, 41176885-1
+Ok
+pinf-8, 17256565-2
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-9, 17256565-3
+Ok
+pinf-10, 20268396-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-11, 70198231-1
+Ok
+Ok
+Ok
+pinf-12, 69772115-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-10, 40072856-1
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-13, 17256565-4
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-14, 99331958-1
+Ok
+Ok
+Ok
+epi-11, 93917474-1
+Ok
+Ok
+Ok
+pinf-15, 83334532-1
+pinf-16, 69772115-2
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-17, 14183115-3
+Ok
+Ok
+pinf-18, 83347783-1
+Ok
+Ok
+pinf-19, 17256565-5
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-20, 95914754-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-12, 1239157-2
+pinf-21, 72201278-1
+Ok
+Ok
+epi-13, 5978041-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-14, 11911055-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-22, 83334532-2
+pinf-23, 66616264-1
+Ok
+Ok
+epi-15, 84226831-1
+Ok
+Ok
+Ok
+epi-16, 61765137-1
+pinf-24, 1174679-1
+Ok
+Ok
+Ok
+Ok
+pinf-25, 72201278-2
+pinf-26, 14183115-4
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-27, 99331958-2
+epi-17, 44793101-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-28, 83334532-3
+Ok
+epi-18, 83184584-1
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-29, 92998034-2
+Ok
+Ok
+Ok
+epi-19, 63673034-1
+pinf-30, 27328348-1
+Ok
+Ok
+Ok
+pinf-31, 70198231-2
+Ok
+Ok
+Ok
+pinf-32, 99331958-3
+Ok
+Ok
+pinf-33, 63152332-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-20, 2732593-1
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-34, 1174679-2
+Ok
+Ok
+Ok
+pinf-35, 95914754-2
+Ok
+epi-21, 55050525-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-22, 5072285-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-23, 54116618-1
+pinf-36, 66616264-2
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-37, 95914754-3
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-38, 72201278-3
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-39, 44235915-1
+Ok
+Ok
+epi-24, 74073972-1
+Ok
+epi-25, 25307255-1
+Ok
+Ok
+Ok
+Ok
+pinf-40, 87752436-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-26, 99480-1
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-27, 42926313-1
+Ok
+Ok
+Ok
+epi-28, 76176330-1
+epi-29, 86164338-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-30, 79655011-1
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-41, 90564190-1
+Ok
+epi-31, 99960444-1
+Ok
+pinf-42, 66616264-3
+Ok
+pinf-43, 51320924-1
+Ok
+Ok
+pinf-44, 33635218-1
+epi-32, 93388270-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-45, 51320924-2
+Ok
+Ok
+pinf-46, 95914754-4
+epi-33, 38250529-1
+Ok
+Ok
+Ok
+Ok
+epi-34, 62216979-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-47, 51556156-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-48, 71737913-1
+Ok
+Ok
+Ok
+Ok
+epi-35, 14708549-1
+Ok
+Ok
+Ok
+pinf-49, 73532240-1
+Ok
+Ok
+pinf-50, 93369664-1
+Ok
+Ok
+Ok
+pinf-51, 56943478-1
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-52, 82044667-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-36, 73558525-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-37, 74073972-2
+Ok
+Ok
+Ok
+pinf-53, 41176885-2
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-54, 63152332-2
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-55, 28526354-1
+epi-38, 95497677-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-56, 53871776-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-57, 41176885-3
+pinf-58, 66616264-4
+epi-39, 70148093-1
+pinf-59, 66616264-5
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-40, 24904930-1
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-60, 20193900-1
+Ok
+Ok
+Ok
+Ok
+pinf-61, 63734178-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-62, 28526354-2
+Ok
+Ok
+pinf-63, 83373190-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-64, 28755410-1
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-41, 81106270-1
+Ok
+Ok
+Ok
+pinf-65, 54313775-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-66, 51556156-2
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-67, 5612019-1
+pinf-68, 33522705-1
+pinf-69, 48772034-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-70, 28109261-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-71, 70198231-3
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-42, 12706157-1
+Ok
+Ok
+Ok
+Ok
+pinf-72, 3480666-1
+Ok
+epi-43, 13186692-1
+Ok
+Ok
+Ok
+pinf-73, 65703780-1
+Ok
+Ok
+Ok
+Ok
+epi-44, 69695946-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-74, 30309230-1
+epi-45, 36900899-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-46, 20809034-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+epi-47, 9660778-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+pinf-75, 67565241-1
+Ok
+pinf-76, 30309230-2
+epi-48, 8171389-1
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+0
+0
+pinf-77, 81676865-1
+0
+0
+0
+pinf-78, 81676865-2
+0
+0
+pinf-79, 90564190-2
+0
+0
+0
+353
+0
+353
+353
+0
+0
+0
+pinf-80, 92474601-1
+0
+353
+353
+353
+353
+0
+0
+353
+pinf-81, 95914754-5
+353
+353
+353
+0
+353
+0
+353
+pinf-82, 48058695-1
+pinf-83, 28889295-1
+0
+353
+353
+0
+0
+0
+353
+353
+0
+353
+0
+353
+0
+0
+pinf-84, 17256565-6
+pinf-85, 56943478-2
+1
+0
+0
+353
+pinf-86, 66616264-6
+353
+0
+pinf-87, 69772115-3
+pinf-88, 65703780-2
+pinf-89, 33522705-2
+0
+0
+353
+pinf-90, 39940048-1
+0
+0
+0
+353
+0
+0
+353
+0
+0
+0
+353
+353
+pinf-91, 12403829-1
+0
+0
+353
+0
+pinf-92, 3480666-2
+0
+pinf-93, 65703780-3
+353
+0
+353
+0
+pinf-94, 48772034-2
+0
+353
+0
+pinf-95, 82044667-2
+pinf-96, 98640436-1
+0
+353
+353
+0
+pinf-97, 48539822-1
+0
+353
+0
+353
+pinf-98, 51320924-3
+pinf-99, 45940864-1
+0
+0
+353
+pinf-100, 21983210-1
+0
+0
+0
+353
+0
+0
+pinf-101, 40616942-1
+0
+pinf-102, 28109261-2
+353
+pinf-103, 93084274-1
+353
+353
+pinf-104, 99666515-1
+353
+353
+pinf-105, 48539822-2
+353
+0
+0
+353
+0
+pinf-106, 41176885-4
+0
+353
+0
+0
+pinf-107, 3480666-3
+353
+0
+pinf-108, 33375322-1
+353
+pinf-109, 22689062-1
+353
+pinf-110, 93369664-2
+353
+0
+pinf-111, 85332044-1
+353
+0
+353
+pinf-112, 18741717-1
+353
+0
+pinf-113, 22442264-1
+0
+0
+pinf-114, 5612019-2
+0
+353
+pinf-115, 34416404-1
+0
+353
+0
+0
+0
+0
+0
+353
+0
+0
+0
+0
+353
+353
+pinf-116, 60553396-1
+353
+0
+353
+0
+353
+0
+pinf-117, 77076493-1
+0
+0
+pinf-118, 98640436-2
+pinf-119, 41176885-5
+353
+353
+0
+0
+0
+353
+0
+353
+0

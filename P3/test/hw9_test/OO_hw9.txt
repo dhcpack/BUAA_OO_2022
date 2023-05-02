@@ -1,0 +1,1 @@
+isCircle函数输入相同的id时没有返回true

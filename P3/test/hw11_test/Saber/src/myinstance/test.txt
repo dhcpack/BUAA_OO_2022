@@ -1,0 +1,187 @@
+signals (EqualPersonIdException e) !(\exists int i; 0 <= i && i < messages.length;
+      @                                     messages[i].equals(message)) &&
+      @                                     ((message instanceof EmojiMessage) ==>
+      @                                     containsEmojiId(((EmojiMessage) message).getEmojiId())) &&
+      @                                     message.getType() == 0 && message.getPerson1() == message.getPerson2();
+
+
+
+@ public normal_behavior
+      @ requires containsMessage(id) && getMessage(id).getType() == 0 &&
+      @          getMessage(id).getPerson1().isLinked(getMessage(id).getPerson2()) &&
+      @          getMessage(id).getPerson1() != getMessage(id).getPerson2();
+      @ assignable messages, emojiHeatList;
+      @ assignable getMessage(id).getPerson1().socialValue, getMessage(id).getPerson1().money;
+      @ assignable getMessage(id).getPerson2().messages, getMessage(id).getPerson2().socialValue, getMessage(id).getPerson2().money;
+
+        ///  remove the message
+      @ ensures !containsMessage(id) && messages.length == \old(messages.length) - 1 &&
+      @         (\forall int i; 0 <= i && i < \old(messages.length) && \old(messages[i].getId()) != id;
+      @         (\exists int j; 0 <= j && j < messages.length; messages[j].equals(\old(messages[i]))));
+
+        ///  change the socialValue of Person1 Person2
+      @ ensures \old(getMessage(id)).getPerson1().getSocialValue() ==
+      @         \old(getMessage(id).getPerson1().getSocialValue()) + \old(getMessage(id)).getSocialValue() &&
+      @         \old(getMessage(id)).getPerson2().getSocialValue() ==
+      @         \old(getMessage(id).getPerson2().getSocialValue()) + \old(getMessage(id)).getSocialValue();
+        /// if the message is RedEnvelopeMessage then /* Person1's money minus  RedEnvelope's Money*/
+                                                        /* Person2's money add  RedEnvelope's Money*/
+      @ ensures (\old(getMessage(id)) instanceof RedEnvelopeMessage) ==>
+      @         (\old(getMessage(id)).getPerson1().getMoney() ==
+      @         \old(getMessage(id).getPerson1().getMoney()) - ((RedEnvelopeMessage)\old(getMessage(id))).getMoney() &&
+      @         \old(getMessage(id)).getPerson2().getMoney() ==
+      @         \old(getMessage(id).getPerson2().getMoney()) + ((RedEnvelopeMessage)\old(getMessage(id))).getMoney());
+
+      @ ensures (!(\old(getMessage(id)) instanceof RedEnvelopeMessage)) ==> (\not_assigned(people[*].money));
+
+
+        /// if the message is EmojiMessage then add the emoji to emojiHeatList //may always contains
+      @ ensures (\old(getMessage(id)) instanceof EmojiMessage) ==>
+      @         (\exists int i; 0 <= i && i < emojiIdList.length && emojiIdList[i] == ((EmojiMessage)\old(getMessage(id))).getEmojiId();
+      @         emojiHeatList[i] == \old(emojiHeatList[i]) + 1);
+      @ ensures (!(\old(getMessage(id)) instanceof EmojiMessage)) ==> \not_assigned(emojiHeatList);
+
+        /// store the message to Person2's receivedMessage in head
+      @ ensures (\forall int i; 0 <= i && i < \old(getMessage(id).getPerson2().getMessages().size());
+      @          \old(getMessage(id)).getPerson2().getMessages().get(i+1) == \old(getMessage(id).getPerson2().getMessages().get(i)));
+      @ ensures \old(getMessage(id)).getPerson2().getMessages().get(0).equals(\old(getMessage(id)));
+      @ ensures \old(getMessage(id)).getPerson2().getMessages().size() == \old(getMessage(id).getPerson2().getMessages().size()) + 1;
+      @ also
+      @ public normal_behavior
+        /// send to group
+      @ requires containsMessage(id) && getMessage(id).getType() == 1 &&
+      @           getMessage(id).getGroup().hasPerson(getMessage(id).getPerson1());
+      @ assignable people[*].socialValue, people[*].money, messages, emojiHeatList;
+        /// remove the message
+      @ ensures !containsMessage(id) && messages.length == \old(messages.length) - 1 &&
+      @         (\forall int i; 0 <= i && i < \old(messages.length) && \old(messages[i].getId()) != id;
+      @         (\exists int j; 0 <= j && j < messages.length; messages[j].equals(\old(messages[i]))));
+        /// socialValue
+      @ ensures (\forall Person p; \old(getMessage(id)).getGroup().hasPerson(p); p.getSocialValue() ==
+      @         \old(p.getSocialValue()) + \old(getMessage(id)).getSocialValue());
+      @ ensures (\forall int i; 0 <= i && i < people.length && !\old(getMessage(id)).getGroup().hasPerson(people[i]);
+      @          \old(people[i].getSocialValue()) == people[i].getSocialValue());
+        /// if the message is Red then /*  */
+      @ ensures (\old(getMessage(id)) instanceof RedEnvelopeMessage) ==>
+      @          (\exists int i; i == ((RedEnvelopeMessage)\old(getMessage(id))).getMoney()/ \old(getMessage(id)).getGroup().getSize();
+      @           \old(getMessage(id)).getPerson1().getMoney() ==
+      @           \old(getMessage(id).getPerson1().getMoney()) - i*(\old(getMessage(id)).getGroup().getSize() - 1) &&
+      @           (\forall Person p; \old(getMessage(id)).getGroup().hasPerson(p) && p != \old(getMessage(id)).getPerson1();
+      @           p.getMoney() == \old(p.getMoney()) + i));
+      @ ensures (\old(getMessage(id)) instanceof RedEnvelopeMessage) ==>
+      @          (\forall int i; 0 <= i && i < people.length && !\old(getMessage(id)).getGroup().hasPerson(people[i]);
+      @           \old(people[i].getMoney()) == people[i].getMoney());
+      @ ensures (!(\old(getMessage(id)) instanceof RedEnvelopeMessage)) ==> (\not_assigned(people[*].money));
+
+        // if the message is emoji    emojiIdList  emojiHeatList
+      @ ensures (\old(getMessage(id)) instanceof EmojiMessage) ==>
+      @         (\exists int i; 0 <= i && i < emojiIdList.length && emojiIdList[i] == ((EmojiMessage)\old(getMessage(id))).getEmojiId();
+      @          emojiHeatList[i] == \old(emojiHeatList[i]) + 1);
+      @ ensures (!(\old(getMessage(id)) instanceof EmojiMessage)) ==> \not_assigned(emojiHeatList);
+      @ also
+      @ public exceptional_behavior
+      @ signals (MessageIdNotFoundException e) !containsMessage(id);
+      @ signals (RelationNotFoundException e) containsMessage(id) && getMessage(id).getType() == 0 &&
+      @          !(getMessage(id).getPerson1().isLinked(getMessage(id).getPerson2()));
+      @ signals (PersonIdNotFoundException e) containsMessage(id) && getMessage(id).getType() == 1 &&
+      @          !(getMessage(id).getGroup().hasPerson(getMessage(id).getPerson1()));
+      @
+
+
+            // if the message is emojiMessage
+            @ ensures (\forall int i; 0 <= i && i < \old(messages.length);
+            @          (\old(messages[i]) instanceof EmojiMessage &&
+            @           containsEmojiId(\old(((EmojiMessage)messages[i]).getEmojiId()))  ==>
+            @           (\exists int j; 0 <= j && j < messages.length; messages[j].equals(\old(messages[i])))));
+            @ ensures (\forall int i; 0 <= i && i < \old(messages.length);
+            @          (!(\old(messages[i]) instanceof EmojiMessage) ==>
+            @           (\exists int j; 0 <= j && j < messages.length; messages[j].equals(\old(messages[i])))));
+            @ ensures messages.length == (\num_of int i; 0 <= i && i <= \old(messages.length);
+            @          (\old(messages[i]) instanceof EmojiMessage) ==>
+            @           (containsEmojiId(\old(((EmojiMessage)messages[i]).getEmojiId()))));
+            @ ensures \result == emojiIdList.length;
+
+
+            @ public normal_behavior
+            @ requires contains(personId);
+            @ assignable getPerson(personId).messages;
+            @ ensures (\forall Message i; \old(getPerson(personId).getMessages().contains(i));
+            @           !(i instanceof NoticeMessage) ==>
+            @             (\exists Message j; getPerson(personId).getMessages().contains(j); i.equals(j)));
+            @ ensures getPerson(personId).messages.length ==
+            @           (\num_of int i; 0 <= i && i < \old(getPerson(personId).messages.length);
+            @             !(\old(getPerson(personId).getMessages().get(i)) instanceof NoticeMessage));
+            @ ensures (\forall int i; 0 <= i && i < getPerson(personId).getMessages().size();
+            @           (\forall int j; i < j && j < getPerson(personId).getMessages().size();
+            @                 \old(getPerson(personId).getMessages()).indexOf(
+            @                   getPerson(personId).getMessages().get(i)) <
+            @                 \old(getPerson(personId).getMessages()).indexOf(
+            @                   getPerson(personId).getMessages().get(j))));
+            @ also
+            @ public exceptional_behavior
+            @ signals (PersonIdNotFoundException e) !contains(personId);
+            @
+
+
+
+                  @ public normal_behavior
+                  @ requires containsMessage(id) && getMessage(id).getType() == 0 &&
+                  @         !isCircle(getMessage(id).getPerson1().getId(), getMessage(id).getPerson2().getId());
+                  @ ensures \result == -1;
+                  @ also
+                  @ public normal_behavior
+                  @ requires containsMessage(id) && getMessage(id).getType() == 0 &&
+                  @          isCircle(getMessage(id).getPerson1().getId(), getMessage(id).getPerson2().getId());
+                  @ assignable messages, emojiHeatList;
+                  @ assignable getMessage(id).getPerson1().socialValue, getMessage(id).getPerson1().money;
+                  @ assignable getMessage(id).getPerson2().messages, getMessage(id).getPerson2().socialValue, getMessage(id).getPerson2().money;
+                    /// remove
+                  @ ensures !containsMessage(id) && messages.length == \old(messages.length) - 1 &&
+                  @         (\forall int i; 0 <= i && i < \old(messages.length) && \old(messages[i].getId()) != id;
+                  @         (\exists int j; 0 <= j && j < messages.length; messages[j].equals(\old(messages[i]))));
+                    ///
+                  @ ensures (\exists Person[] pathM;
+
+                            /// condition
+                  @         pathM.length >= 2 &&
+                  @         pathM[0].equals(\old(getMessage(id)).getPerson1()) &&
+                  @         pathM[pathM.length - 1].equals(\old(getMessage(id)).getPerson2()) &&
+                  @         (\forall int i; 1 <= i && i < pathM.length; pathM[i - 1].isLinked(pathM[i]));
+
+                  @         (\forall Person[] path;
+
+                  @         path.length >= 2 &&
+                  @         path[0].equals(\old(getMessage(id)).getPerson1()) &&
+                  @         path[path.length - 1].equals(\old(getMessage(id)).getPerson2()) &&
+                  @         (\forall int i; 1 <= i && i < path.length; path[i - 1].isLinked(path[i]));
+
+                  @         (\sum int i; 1 <= i && i < path.length; path[i - 1].queryValue(path[i])) >=
+                  @         (\sum int i; 1 <= i && i < pathM.length; pathM[i - 1].queryValue(pathM[i]))) &&
+                  @         \result==(\sum int i; 1 <= i && i < pathM.length; pathM[i - 1].queryValue(pathM[i])));
+
+
+                  @ ensures \old(getMessage(id)).getPerson1().getSocialValue() ==
+                  @         \old(getMessage(id).getPerson1().getSocialValue()) + \old(getMessage(id)).getSocialValue() &&
+                  @         \old(getMessage(id)).getPerson2().getSocialValue() ==
+                  @         \old(getMessage(id).getPerson2().getSocialValue()) + \old(getMessage(id)).getSocialValue();
+
+
+                  @ ensures (\old(getMessage(id)) instanceof RedEnvelopeMessage) ==>
+                  @         (\old(getMessage(id)).getPerson1().getMoney() ==
+                  @         \old(getMessage(id).getPerson1().getMoney()) - ((RedEnvelopeMessage)\old(getMessage(id))).getMoney() &&
+                  @         \old(getMessage(id)).getPerson2().getMoney() ==
+                  @         \old(getMessage(id).getPerson2().getMoney()) + ((RedEnvelopeMessage)\old(getMessage(id))).getMoney());
+                  @ ensures (!(\old(getMessage(id)) instanceof RedEnvelopeMessage)) ==> (\not_assigned(people[*].money));
+                  @ ensures (\old(getMessage(id)) instanceof EmojiMessage) ==>
+                  @         (\exists int i; 0 <= i && i < emojiIdList.length && emojiIdList[i] == ((EmojiMessage)\old(getMessage(id))).getEmojiId();
+                  @          emojiHeatList[i] == \old(emojiHeatList[i]) + 1);
+                  @ ensures (!(\old(getMessage(id)) instanceof EmojiMessage)) ==> \not_assigned(emojiHeatList);
+                  @ ensures (\forall int i; 0 <= i && i < \old(getMessage(id).getPerson2().getMessages().size());
+                  @          \old(getMessage(id)).getPerson2().getMessages().get(i+1) == \old(getMessage(id).getPerson2().getMessages().get(i)));
+                  @ ensures \old(getMessage(id)).getPerson2().getMessages().get(0).equals(\old(getMessage(id)));
+                  @ ensures \old(getMessage(id)).getPerson2().getMessages().size() == \old(getMessage(id).getPerson2().getMessages().size()) + 1;
+                  @ also
+                  @ public exceptional_behavior
+                  @ signals (MessageIdNotFoundException e) !containsMessage(id) ||
+                  @         containsMessage(id) && getMessage(id).getType() == 1;
+                  @

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Alterego">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/timable-output.jar!/" />
+      <root url="jar://$PROJECT_DIR$/elevator-input-2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

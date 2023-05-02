@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Assassin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Assassin_jar</output-path>
+    <root id="archive" name="Assassin.jar">
+      <element id="module-output" name="Assassin" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/timable-output.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/elevator-input-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../1-OO/P2/P2_jar/hw5_jar/timable-output.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../1-OO/P2/P2_jar/hw5_jar/elevator-input-1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

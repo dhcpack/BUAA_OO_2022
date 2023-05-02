@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>20231164</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>homework_2022_20231164_hw_1-25864de26ca354ae58ed44d58126e10800e72446-25864de26ca354ae58ed44d58126e10800e72446/src/Calculator.java</CENTER></H3><HR>
+<PRE>
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Iterator;
+<A NAME="17"></A>
+public class Calculator {
+
+    public HashMap&lt;Integer, BigInteger&gt; mutiply(<FONT color="#800517"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#17',2,'match6-top.html#17',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>HashMap&lt;Integer, BigInteger&gt; terms1,
+                                                HashMap&lt;Integer, BigInteger&gt; terms2) {
+        HashMap&lt;Integer, BigInteger&gt; res = new HashMap&lt;&gt;();  // (degree, coef)-&gt;指数，系数
+        for (Integer degree1 : terms1.keySet()) {
+            BigInteger coef1 = terms1.get(degree1);
+<A NAME="18"></A>            for (Integer degree2 : terms2.keySet()) {
+                BigInteger coef2 = terms2.get</B></FONT>(degree2);
+                if (res.containsKey(degree1 + degree2)) {
+                    <FONT color="#f62817"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#18',2,'match6-top.html#18',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>res.put(degree1 + degree2,
+                            res.get(degree1 + degree2).add(coef1.multiply(coef2)));
+                } else {
+                    res.put(degree1 + degree2, coef1.multiply(coef2));
+                }
+            }
+        }
+        return res;
+    }
+
+    public HashMap&lt;Integer, BigInteger&gt; power(Factor expr</B></FONT>, int times) {
+        HashMap&lt;Integer, BigInteger&gt; res = new HashMap&lt;&gt;();
+<A NAME="19"></A>        HashMap&lt;Integer, BigInteger&gt; terms = expr.getTerms();
+        if (times == 0) {
+            res.put(0, new BigInteger(&quot;1&quot;));
+            <FONT color="#4e9258"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#19',2,'match6-top.html#19',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>return res;
+        }
+        for (Integer degree : terms.keySet()) {
+            res.put(degree, terms.get(degree));
+        }
+        for (int i = 1; i &lt; times; i++) {
+            res = mutiply(res, terms);
+        }
+        return res;
+    }</B></FONT>
+
+    public HashMap&lt;Integer, BigInteger&gt; calcTerms(Term term) {
+<A NAME="13"></A>        HashMap&lt;Integer, BigInteger&gt; res = new HashMap&lt;&gt;();
+        Iterator&lt;Factor&gt; iterator = term.getFactor().iterator();
+        Factor factor = iterator.next();
+<A NAME="14"></A>        <FONT color="#842dce"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#13',2,'match6-top.html#13',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>for (Integer degree : factor.getTerms().keySet()) {
+            res.put(degree, factor.getTerms().get(degree));
+        }</B></FONT>
+        <FONT color="#f52887"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#14',2,'match6-top.html#14',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>while (iterator.hasNext()) {
+            factor = iterator.next();
+            res = mutiply(res, factor.getTerms());
+<A NAME="15"></A>        }</B></FONT>
+        BigInteger sign = term.getSign();
+        HashMap&lt;Integer, BigInteger&gt; resCopy = new HashMap&lt;&gt;();
+        <FONT color="#3bb9ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#15',2,'match6-top.html#15',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>for (Integer degree : res.keySet()) {
+            resCopy.put(degree, res.get(degree).multiply(sign));
+        }</B></FONT>
+        return resCopy;
+    }
+
+}
+
+
+</PRE>
+<HR>
+<H3><CENTER>homework_2022_20231164_hw_1-25864de26ca354ae58ed44d58126e10800e72446-25864de26ca354ae58ed44d58126e10800e72446/src/Expr.java</CENTER></H3><HR>
+<PRE>
+import java.math.BigInteger;
+import java.util.HashMap;
+
+public class Expr implements Factor {
+<A NAME="10"></A>    private HashMap&lt;Integer, BigInteger&gt; terms = new HashMap&lt;&gt;();  // (degree, coef)-&gt;指数，系数
+
+    public Expr() {
+    <FONT color="#b041ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#10',2,'match6-top.html#10',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    public Expr(HashMap&lt;Integer, BigInteger&gt; terms) {
+        this.terms = terms;
+    }
+
+    public HashMap&lt;Integer, BigInteger&gt; getTerms() {
+        return terms;
+    }
+
+<A NAME="16"></A>    public voi</B></FONT>d mergeTerms(Term term) {
+        Calculator calculator = new Calculator();
+        HashMap&lt;Integer, BigInteger&gt; toMerge = calculator.calcTerms(term);
+        <FONT color="#3090c7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#16',2,'match6-top.html#16',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>for (Integer degree : toMerge.keySet()) {
+            if (terms.containsKey(degree)) {
+                terms.replace(degree, terms.get(degree).add(toMerge.get(degree)));
+            } else {
+                terms.put(degree, toMerge.get(degree));
+            }
+<A NAME="11"></A>        }
+    }
+
+    public S</B></FONT>tring toString() <FONT color="#571b7e"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#11',2,'match6-top.html#11',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Integer degree : terms.keySet()) {
+            BigInteger coef = terms.get</B></FONT>(degree);
+            BigInteger zero = new BigInteger(&quot;0&quot;);
+            StringBuilder attached = new StringBuilder();
+            if (!coef.equals(zero)) {
+                attached.append(coef);
+
+                if (degree != 0) {
+                    if (coef.equals(new BigInteger(&quot;1&quot;)) || coef.equals(new BigInteger(&quot;-1&quot;))) {
+                        attached.deleteCharAt(attached.length() - 1);
+                    } else {
+                        attached.append(&quot;*&quot;);
+                    }
+                    attached.append(&quot;x&quot;);
+                    if (degree != 1 &amp;&amp; degree != 2) {
+                        attached.append(&quot;**&quot;).append(degree);
+                    } else if (degree == 2) {
+                        attached.append(&quot;*x&quot;);
+<A NAME="12"></A>                    }
+                }
+
+                if (coef.compareTo(zero) &gt; 0) <FONT color="#3b9c9c"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#12',2,'match6-top.html#12',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{
+                    attached.insert(0, &quot;+&quot;);
+                    stringBuilder.insert(0, attached);
+                } else {
+                    stringBuilder.append(attached);
+                }
+            }
+        }</B></FONT>
+        if (stringBuilder.length() == 0) {
+            return &quot;0&quot;;
+        } else {
+            String res = stringBuilder.toString();
+            if (res.charAt(0) == '+') {
+                return res.substring(1);
+            }
+            return res;
+        }
+
+
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>homework_2022_20231164_hw_1-25864de26ca354ae58ed44d58126e10800e72446-25864de26ca354ae58ed44d58126e10800e72446/src/Lexer.java</CENTER></H3><HR>
+<PRE>
+public class Lexer {
+    private final String input;
+    private int pos = 0;
+    private String curToken;
+
+    public Lexer(String input) {
+        this.input = input;
+<A NAME="7"></A>        this.next();
+    }
+
+    <FONT color="#c58917"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#7',2,'match6-top.html#7',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>private String getNumber() {
+        StringBuilder sb = new StringBuilder();
+        while (pos &lt; input.length() &amp;&amp; Character.isDigit(input.charAt(pos))) {
+            sb.append(input.charAt(pos));
+            ++pos;
+        }
+
+        return sb.toString();
+    }
+
+    publ</B></FONT>ic void next() {
+        if (pos == input.length()) {
+<A NAME="6"></A>            return;
+        }
+
+        char c = <FONT color="#50ebec"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#6',2,'match6-top.html#6',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>input.charAt(pos);
+        if (Character.isDigit(c)) {
+            curToken = getNumber();
+        } else if (pos + 1 &lt; input.length() &amp;&amp; input.charAt(pos) == '*' &amp;&amp; input.charAt(
+                pos + 1) == '*') {
+            curToken = &quot;**&quot;;
+            pos += 2;
+        } else if (&quot;+-*()x&quot;.indexOf(c) != -1) {
+            curToken = String.valueOf(c);
+            pos += 1;
+        }
+    }
+
+    public String peek() {
+        return this.curToken;
+    }</B></FONT>
+}
+</PRE>
+<HR>
+<H3><CENTER>homework_2022_20231164_hw_1-25864de26ca354ae58ed44d58126e10800e72446-25864de26ca354ae58ed44d58126e10800e72446/src/MainClass.java</CENTER></H3><HR>
+<PRE>
+<A NAME="8"></A><FONT color="#bce954"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#8',2,'match6-top.html#8',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import com.oocourse.spec1.ExprInput;
+import com.oocourse.spec1.ExprInputMode;
+
+public class MainClass {
+    public static void main(String[] args) {
+        ExprInput scanner = new ExprInput(ExprInputMode.NormalMode);
+        String expr = scanner.readLine</B></FONT>();
+        expr = expr.replaceAll(&quot; &quot;, &quot;&quot;);
+        expr = expr.replaceAll(&quot;\t&quot;, &quot;&quot;);
+
+        Lexer lexer = new Lexer(expr);
+        Parser parser = new Parser(lexer);
+
+        Expr res = parser.parseExpr();
+        System.out.println(res);
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>homework_2022_20231164_hw_1-25864de26ca354ae58ed44d58126e10800e72446-25864de26ca354ae58ed44d58126e10800e72446/src/Number.java</CENTER></H3><HR>
+<PRE>
+<A NAME="9"></A><FONT color="#f88017"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#9',2,'match6-top.html#9',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.math.BigInteger;
+import java.util.HashMap;
+
+public class Number implements Factor {
+    private final HashMap&lt;Integer, BigInteger&gt; number = new HashMap&lt;&gt;();
+
+    public Number(BigInteger coef) {
+        number.put(0, coef);
+    }
+
+    public H</B></FONT>ashMap&lt;Integer, BigInteger&gt; getTerms() {
+        return number;
+    }
+
+}
+</PRE>
+<HR>
+<H3><CENTER>homework_2022_20231164_hw_1-25864de26ca354ae58ed44d58126e10800e72446-25864de26ca354ae58ed44d58126e10800e72446/src/Parser.java</CENTER></H3><HR>
+<PRE>
+import java.math.BigInteger;
+<A NAME="0"></A>
+public class Parser {
+    private final Lexer lexer;
+    <FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#0',2,'match6-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>private int sign = 1;
+
+    public Parser(Lexer lexer) {
+        this.lexer = lexer;
+    }
+
+    public Expr parseExpr() {  // expr表达式，里面是term项，记录方式为HashMap&lt;Integer, BigInteger&gt;
+        Expr expr = new</B></FONT> Expr();
+        sign = 1;
+        while (&quot;+-&quot;.contains(lexer.peek())) {
+<A NAME="1"></A>            if (lexer.peek().equals(&quot;-&quot;)) {
+                sign = -sign;
+            }
+            <FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#1',2,'match6-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>lexer.next();
+        }
+        expr.mergeTerms(parseTerm());
+
+        while (&quot;+-&quot;.contains(lexer.peek())) {
+            sign = 1;
+            while (&quot;+-&quot;.contains(lexer.peek())) {</B></FONT>
+<A NAME="2"></A>                if (lexer.peek().equals(&quot;-&quot;)) {
+                    sign = -sign;
+                }
+                <FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#2',2,'match6-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>lexer.next();
+            }
+            expr.mergeTerms(parseTerm());
+        }
+<A NAME="3"></A>        return expr;
+    }
+
+    public Te</B></FONT>rm parseTerm() <FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#3',2,'match6-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>{  // term项，里面是factor因子(包括表达式因子，数字因子，幂函数因子)
+        Term term = new Term(sign);
+        term.addFactor(parseFactor());
+        while (lexer.peek().equals(&quot;*&quot;)) {
+            lexer.next();
+            term.addFactor(parseFactor());
+        }
+        return term;
+    }
+<A NAME="4"></A>
+    public Factor parseFactor() {</B></FONT>  // factor因子，也统一以HashMap&lt;Integer, BigInteger&gt;的形式记录在Expr中
+        int sign = 1;
+        <FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#4',2,'match6-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>if (lexer.peek().equals(&quot;(&quot;)) {  // 表达式因子
+            lexer.next();
+            Expr expr = parseExpr();  // 表达式因子解析表达式
+            lexer.next();
+            if (lexer.peek().equals(&quot;**&quot;)) {
+                lexer.next();
+                int times = Integer.parseInt</B></FONT>(getSignedNum().toString());
+                lexer.next();
+                Calculator calculator = new Calculator();
+                return new Expr(calculator.power(expr, times));
+            }
+            return expr;
+        } else if (lexer.peek().equals(&quot;x&quot;)) {
+            lexer.next();
+            if (lexer.peek().equals(&quot;**&quot;)) {
+                lexer.next();
+                int degree = Integer.parseInt(getSignedNum().toString());
+                lexer.next();
+                return new Power(degree);
+            }
+            return new Power(1);
+        } else {  // 数字因子
+            BigInteger num = getSignedNum();
+            lexer.next();
+            if (lexer.peek().equals(&quot;**&quot;)) {
+                lexer.next();
+                int degree = Integer.parseInt(getSignedNum().toString());
+<A NAME="5"></A>                lexer.next();
+                return new Number(num.pow(degree));
+            }
+            <FONT color="#c8c2a7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#5',2,'match6-top.html#5',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>return new Number(num);
+        }
+    }
+
+    public BigInteger getSignedNum() {
+        int sign = 1</B></FONT>;
+        if (&quot;+-&quot;.contains(lexer.peek())) {
+            if (&quot;-&quot;.equals(lexer.peek())) {
+                sign = -1;
+            }
+            lexer.next();
+        }
+        BigInteger res = new BigInteger(lexer.peek());
+        return res.multiply(new BigInteger(String.valueOf(sign)));
+    }
+}
+</PRE>
+<HR>
+<H3><CENTER>homework_2022_20231164_hw_1-25864de26ca354ae58ed44d58126e10800e72446-25864de26ca354ae58ed44d58126e10800e72446/src/Term.java</CENTER></H3><HR>
+<PRE>
+<A NAME="20"></A>import java.math.BigInteger;
+<FONT color="#d4a017"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#20',2,'match6-top.html#20',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import java.util.HashSet;
+
+public class Term {
+    private final HashSet&lt;Factor&gt; factors;
+    private final BigInteger sign;
+
+    public Term(int sign) {
+        this.factors = new HashSet&lt;&gt;();
+        t</B></FONT>his.sign = new BigInteger(String.valueOf(sign));
+    }
+<A NAME="21"></A>
+    public void addFactor(Factor factor) {
+        factors.add(factor);
+    <FONT color="#00ff00"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match6-0.html#21',2,'match6-top.html#21',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>}
+
+    public HashSet&lt;Factor&gt; getFactor() {
+        return factors;
+    }
+
+    public BigInteger getSign() {
+        return sign;
+    }</B></FONT>
+}
+</PRE>
+
+</BODY>
+</HTML>

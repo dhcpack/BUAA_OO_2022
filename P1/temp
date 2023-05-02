@@ -1,0 +1,7 @@
+3
+f(x,y,z) = 	sin(x**2) + cos((x*y)) -+sin((x*y*z))-z
+g(z) = sin(cos(z**2))
+h(z,y) = z*y*sin(((y*(z*z))**2))
+f(x**3,h(x,g(g(x))),sum(i,1,10,cos(sin(i))))
+Ans:
+cos((x**4*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))))+sin((x**6))-cos((sin((7))))-cos((sin((9))))-cos((sin((3))))-cos((sin((5))))-sin((x**4*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))*cos((sin((5))))+x**4*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))*cos((sin((10))))+x**4*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))*cos((sin((8))))+x**4*cos((sin((1))))*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))+x**4*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*cos((sin((2))))*sin((cos((sin((cos((x*x))))**2))))+x**4*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*cos((sin((9))))*sin((cos((sin((cos((x*x))))**2))))+x**4*cos((sin((4))))*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))+x**4*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))*cos((sin((3))))+x**4*cos((sin((7))))*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))+x**4*cos((sin((6))))*sin((x**4*sin((cos((sin((cos((x*x))))**2))))**2))*sin((cos((sin((cos((x*x))))**2))))))-cos((sin((1))))-cos((sin((6))))-cos((sin((8))))-cos((sin((10))))-cos((sin((4))))-cos((sin((2))))

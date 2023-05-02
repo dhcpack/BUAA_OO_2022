@@ -1,0 +1,14 @@
+LocalTest.java
+*.class
+out/
+document/
+*.iml
+.idea
+.vscode
+*.in
+*.out
+*.ans
+lib/
+data/
+cmp/
+*.dat

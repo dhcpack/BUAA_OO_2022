@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Archer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Archer_jar</output-path>
+    <root id="archive" name="Archer.jar">
+      <element id="module-output" name="Archer" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../1-OO/P2/P2_jar/hw5_jar/elevator-input-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../1-OO/P2/P2_jar/hw5_jar/timable-output.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/timable-output.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/elevator-input-1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

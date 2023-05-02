@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Assassin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Assassin_jar</output-path>
+    <root id="archive" name="Assassin.jar">
+      <element id="module-output" name="Assassin" />
+    </root>
+  </artifact>
+</component>

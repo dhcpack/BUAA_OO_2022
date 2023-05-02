@@ -1,0 +1,7 @@
+1.将所有文件解压到同一目录下，并把你的java程序打包成jar包放到该目录下，改名为code.jar
+2.在windows命令行中，进入该目录，使用python auto_hw5.py运行测试程序即可
+
+注意：
+关于程序运行时间realTime，由于用subProcess调用官方投喂程序再调用我们的java程序，因此可能得到的realTime可能比java程序运行时间长，
+从而超出maxTime的限制。
+在本自动测试程序中，如果不想对realTime进行测试，打开auto_hw5.py，将其中的realTime变量改成0.5即可。

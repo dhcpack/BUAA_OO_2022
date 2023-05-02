@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Berserker:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Berserker_jar</output-path>
+    <root id="archive" name="Berserker.jar">
+      <element id="module-output" name="Berserker" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../1-OO/P2/P2_jar/hw7_jar/elevator-input-3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../1-OO/P2/P2_jar/hw7_jar/timable-output.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

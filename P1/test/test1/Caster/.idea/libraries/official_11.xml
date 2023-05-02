@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="official_11">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hw1/official_1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
